@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Mars Exploration</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+	<div class="container text-center">
+		 <div class="jumbotron">
+      <h1 style="text-align: center">Mission to Mars</h1>
+      <button type="button" class="btn btn-outline-secondary"><a href="/scrape">Scrape New Data</a></button>
+     </div>
+		
+
+    <!-- Latest Mars News -->
+    <div class="container-fluid">
+        <h3>Latest Mars News</h3>
+        <h4>{{ data.headline }}</h4>
+        <p>{{ data.article }}</p>  
+    </div>
+
+    <!-- Featured Mars Image -->
+    <div class="container-fluid">
+        <h3>Featured Mars Image</h3> 
+        <img src="{{ data.img }}">  
+    </div>
+
+   <!--  Mars Weather -->
+    <div class="container-fluid">
+          <h3>Current Mars Weather</h3>
+          <p>{{ data.weather }}</p>
+    </div>
+    
+    <div class="container-fluid">
+      <h3>Mars Facts</h3>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Equatorial Diameter</td>
+          <td>{{ data.mars_facts[0].column_2 }}</td>
+        </tr>
+        <tr>
+          <td>Polar Diameter</td>
+          <td>{{ data.mars_facts[1].column_2 }}</td>
+        </tr>
+        <tr>
+          <td>Mass</td>
+          <<td>{{ data.mars_facts[2].column_2 }}</td>
+        </tr>
+        <tr>
+          <td>Moons</td>
+          <td>{{ data.mars_facts[3].column_2 }}</td>
+        </tr>
+        <tr>
+          <td>Orbit Distance</td>
+          <td>{{ data.mars_facts[4].column_2 }}</td>
+        </tr>
+        <tr>
+          <td>Orbit Period</td>
+          <td>{{ data.mars_facts[5].column_2 }}</td>
+        </tr>
+        <tr>
+          <td>Surface Temperature</td>
+          <td>{{ data.mars_facts[6].column_2 }}</td>
+        </tr>
+        <tr>
+          <td>First Record</td>
+          <td>{{ data.mars_facts[7].column_2 }}</td>
+        </tr>
+        <tr>
+          <td>Recorded By</td>
+          <td>{{ data.mars_facts[8].column_2 }}</td>
+        </tr>       
+      </thead>
+    </table>
+    </div>
+	
+</body>
+</html>
